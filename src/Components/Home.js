@@ -10,9 +10,14 @@ const Home=()=>{
         .then(res=>setTitles(res.data))
     }
 
+    const deleteData=data=>{
+        axios.post('http://localhost:9000/deleteTodo',{todoId:data})
+    }
+
     useEffect(()=>{
         getData()
-    },[titles.length!==0])
+    },[titles])
+
     return(
         <div className="cards">
             {titles.map((v,i)=><div className="card" key={i}>
@@ -21,6 +26,7 @@ const Home=()=>{
                 </div>
                 <div className="card-content">
                 <p>{v.title}</p>
+                <a className="delete_btn" onClick={()=>deleteData(v._id)}>&#10006;</a>
                 </div>
             </div>)}
         </div>

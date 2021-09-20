@@ -90,3 +90,11 @@
     cursor: pointer;
     outline: none;
 }
+
+.delete_btn{
+    color: red;
+    cursor: pointer;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}

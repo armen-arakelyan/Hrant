@@ -32,4 +32,8 @@ app.post('/create',bodyParser,async(req,res)=>{
     }
 })
 
+app.post('/deleteTodo',bodyParser,async(req,res)=>{
+   await model.findByIdAndDelete(req.body.todoId)
+})
+
 app.listen(9000)
